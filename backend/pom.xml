@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>ru.honsage.libris</groupId>
+    <artifactId>backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>common</module>
+        <module>auth</module>
+        <module>catalogue</module>
+        <module>lending</module>
+        <module>profile</module>
+        <module>entrypoint</module>
+    </modules>
+
+    <name>LibrIS</name>
+    <description>Modulith Backend of Library Information System</description>
+
+    <url>https://github.com/Honsage/Libris</url>
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://mit-license.org/license.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>Honsage</id>
+            <name>Musatov Ivan</name>
+            <email>musatowian@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>git@github.com:Honsage/Libris.git</connection>
+        <developerConnection>git@github.com:Honsage/Libris.git</developerConnection>
+        <url>https://github.com/Honsage/Libris</url>
+    </scm>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>auth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>catalogue</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>lending</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>profile</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>entrypoint</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
