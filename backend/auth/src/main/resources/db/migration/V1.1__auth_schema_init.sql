@@ -1,0 +1,13 @@
+CREATE SCHEMA IF NOT EXISTS auth;
+
+CREATE TYPE auth.user_role AS ENUM ('READER', 'LIBRARIAN', 'ADMIN');
+
+CREATE TABLE auth."user" (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role auth.user_role NOT NULL DEFAULT 'READER',
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE
+);
