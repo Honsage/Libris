@@ -10,3 +10,9 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
+  data:
+    redis:
+      host: ${CACHE_HOST:localhost}
+      port: ${CACHE_PORT:6379}
+      timeout: 2000ms
