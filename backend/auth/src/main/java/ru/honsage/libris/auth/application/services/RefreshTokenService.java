@@ -1,8 +1,9 @@
-package ru.honsage.libris.auth.infrastructure.cache;
+package ru.honsage.libris.auth.application.services;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import ru.honsage.libris.auth.application.dto.RefreshTokenData;
 
 import java.time.Duration;
 import java.time.Instant;

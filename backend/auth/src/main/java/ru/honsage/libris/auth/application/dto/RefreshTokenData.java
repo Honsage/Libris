@@ -1,4 +1,4 @@
-package ru.honsage.libris.auth.infrastructure.cache;
+package ru.honsage.libris.auth.application.dto;
 
 import java.time.Instant;
 
