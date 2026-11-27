@@ -1,6 +1,6 @@
 package ru.honsage.libris.auth.domain.exceptions;
 
-import ru.honsage.libris.common.exceptions.NotFoundException;
+import ru.honsage.libris.platform.exceptions.NotFoundException;
 
 public class RefreshTokenNotFoundException extends NotFoundException {
 

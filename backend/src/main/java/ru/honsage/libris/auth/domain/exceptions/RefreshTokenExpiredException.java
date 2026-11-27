@@ -1,6 +1,6 @@
 package ru.honsage.libris.auth.domain.exceptions;
 
-import ru.honsage.libris.common.exceptions.BusinessException;
+import ru.honsage.libris.platform.exceptions.BusinessException;
 
 public class RefreshTokenExpiredException extends BusinessException {
 

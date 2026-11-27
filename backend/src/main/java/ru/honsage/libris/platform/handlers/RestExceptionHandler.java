@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.honsage.libris.platform.dto.ErrorResponse;
-import ru.honsage.libris.common.exceptions.*;
+import ru.honsage.libris.platform.exceptions.*;
 import ru.honsage.libris.platform.exceptions.*;
 
 @RestControllerAdvice(annotations = RestController.class)

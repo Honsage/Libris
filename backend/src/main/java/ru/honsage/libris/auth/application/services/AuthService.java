@@ -16,7 +16,7 @@
     import ru.honsage.libris.auth.domain.repositories.UserRepository;
     import ru.honsage.libris.auth.domain.valueobjects.Email;
     import ru.honsage.libris.auth.application.dto.RefreshTokenData;
-    import ru.honsage.libris.common.security.JwtService;
+    import ru.honsage.libris.platform.security.JwtService;
 
     import java.time.Instant;
 

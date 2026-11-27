@@ -1,6 +1,6 @@
 package ru.honsage.libris.auth.domain.exceptions;
 
-import ru.honsage.libris.common.exceptions.ValidationException;
+import ru.honsage.libris.platform.exceptions.ValidationException;
 
 public class EmailValidationException extends ValidationException {
 

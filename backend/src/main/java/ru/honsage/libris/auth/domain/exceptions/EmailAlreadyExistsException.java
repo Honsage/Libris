@@ -1,6 +1,6 @@
 package ru.honsage.libris.auth.domain.exceptions;
 
-import ru.honsage.libris.common.exceptions.ConflictException;
+import ru.honsage.libris.platform.exceptions.ConflictException;
 
 public class EmailAlreadyExistsException extends ConflictException {
 

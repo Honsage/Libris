@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.honsage.libris.common.exceptions.*;
+import ru.honsage.libris.platform.exceptions.*;
 import ru.honsage.libris.platform.exceptions.*;
 
 @ControllerAdvice(annotations = Controller.class)
