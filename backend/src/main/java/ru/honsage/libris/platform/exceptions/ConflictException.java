@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.exceptions;
+package ru.honsage.libris.platform.exceptions;
 
 public abstract class ConflictException extends BusinessException {
 

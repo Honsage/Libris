@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.config;
+package ru.honsage.libris.platform.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

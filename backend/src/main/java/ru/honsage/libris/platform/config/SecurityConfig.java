@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.config;
+package ru.honsage.libris.platform.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import ru.honsage.libris.common.security.JwtAuthenticationFilter;
+import ru.honsage.libris.platform.security.JwtAuthenticationFilter;
 
 import java.util.List;
 

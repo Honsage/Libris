@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.security;
+package ru.honsage.libris.platform.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

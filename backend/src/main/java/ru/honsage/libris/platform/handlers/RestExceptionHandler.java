@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.handlers;
+package ru.honsage.libris.platform.handlers;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.honsage.libris.common.dto.ErrorResponse;
+import ru.honsage.libris.platform.dto.ErrorResponse;
 import ru.honsage.libris.common.exceptions.*;
+import ru.honsage.libris.platform.exceptions.*;
 
 @RestControllerAdvice(annotations = RestController.class)
 @Order(Ordered.HIGHEST_PRECEDENCE)

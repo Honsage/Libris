@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.handlers;
+package ru.honsage.libris.platform.handlers;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import ru.honsage.libris.common.exceptions.*;
+import ru.honsage.libris.platform.exceptions.*;
 
 @ControllerAdvice(annotations = Controller.class)
 @Order(Ordered.LOWEST_PRECEDENCE)

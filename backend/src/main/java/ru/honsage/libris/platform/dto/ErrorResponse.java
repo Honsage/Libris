@@ -1,4 +1,4 @@
-package ru.honsage.libris.common.dto;
+package ru.honsage.libris.platform.dto;
 
 import java.time.LocalDateTime;
 
