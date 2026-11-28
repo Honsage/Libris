@@ -1,0 +1,185 @@
+{
+  "version": "4.0.0",
+  "darkMode": true,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "relationshipMode": "All",
+    "tablePositions": [
+      {
+        "name": "user",
+        "schemaName": "auth",
+        "x": 828.6395889336491,
+        "y": 928.9603758479926
+      },
+      {
+        "name": "profile",
+        "schemaName": "profile",
+        "x": 849.310145574274,
+        "y": 636.7142018762303
+      },
+      {
+        "name": "author",
+        "schemaName": "catalogue",
+        "x": 841.9064875068987,
+        "y": 441.31510235132964
+      },
+      {
+        "name": "category",
+        "schemaName": "catalogue",
+        "x": 848.3099543037737,
+        "y": 289.23913224643576
+      },
+      {
+        "name": "book",
+        "schemaName": "catalogue",
+        "x": 19.698698935305885,
+        "y": 289.23913224643576
+      },
+      {
+        "name": "book_author",
+        "schemaName": "catalogue",
+        "x": 408.8872362209662,
+        "y": 441.31510235132964
+      },
+      {
+        "name": "book_category",
+        "schemaName": "catalogue",
+        "x": 408.8872362209662,
+        "y": 289.23913224643576
+      },
+      {
+        "name": "item",
+        "schemaName": "lending",
+        "x": 9.020476279055885,
+        "y": 636.7142018762303
+      },
+      {
+        "name": "reservation",
+        "schemaName": "lending",
+        "x": 400.7412401272162,
+        "y": 604.7142018762303
+      },
+      {
+        "name": "loan",
+        "schemaName": "lending",
+        "x": 416.0220018459662,
+        "y": 928.9603758479925
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": [
+      {
+        "firstFieldNames": [
+          "isbn"
+        ],
+        "firstTableName": "book",
+        "firstSchemaName": "catalogue",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "book_isbn"
+        ],
+        "secondTableName": "book_author",
+        "secondSchemaName": "catalogue",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "author",
+        "firstSchemaName": "catalogue",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "author_id"
+        ],
+        "secondTableName": "book_author",
+        "secondSchemaName": "catalogue",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "isbn"
+        ],
+        "firstTableName": "book",
+        "firstSchemaName": "catalogue",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "book_isbn"
+        ],
+        "secondTableName": "book_category",
+        "secondSchemaName": "catalogue",
+        "secondRelation": "0..*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "category",
+        "firstSchemaName": "catalogue",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "category_id"
+        ],
+        "secondTableName": "book_category",
+        "secondSchemaName": "catalogue",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "item",
+        "firstSchemaName": "lending",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "item_id"
+        ],
+        "secondTableName": "reservation",
+        "secondSchemaName": "lending",
+        "secondRelation": "0..*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "item",
+        "firstSchemaName": "lending",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "item_id"
+        ],
+        "secondTableName": "loan",
+        "secondSchemaName": "lending",
+        "secondRelation": "0..*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "item",
+        "firstSchemaName": "lending",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "isbn"
+        ],
+        "secondTableName": "item",
+        "secondSchemaName": "lending",
+        "secondRelation": "0..*",
+        "checkPoints": []
+      }
+    ],
+    "elementPositions": [],
+    "groupCollapseStates": [],
+    "linkPaths": []
+  },
+  "views": {}
+}

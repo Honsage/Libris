@@ -1,0 +1,153 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+// SCHEMA: auth
+
+Enum auth.user_role {
+  READER
+  LIBRARIAN
+  ADMIN
+}
+
+Table auth.user {
+  id uuid [pk, default: `gen_random_uuid()`]
+  email varchar(100) [not null, unique]
+  password_hash varchar(255) [not null]
+  role auth.user_role [not null, default: 'READER']
+  is_active boolean [not null, default: true]
+  created_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at timestamptz
+}
+
+// SCHEMA: profile
+
+Table profile.profile {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [not null, unique]
+  phone varchar(20)
+  library_card varchar(20) [unique]
+  surname varchar(50) [not null]
+  name varchar(50) [not null]
+  patronymic varchar(50)
+}
+
+// SCHEMA: catalogue
+
+Table catalogue.author {
+  id bigserial [pk]
+  full_name varchar(150) [not null]
+
+  indexes {
+    full_name [type: gin, note: 'gin_trgm_ops']
+  }
+}
+
+Table catalogue.category {
+  id bigserial [pk]
+  name varchar(100) [not null, unique]
+
+  indexes {
+    name [type: gin, note: 'gin_trgm_ops']
+  }
+}
+
+Table catalogue.book {
+  isbn varchar(17) [pk]
+  title varchar(150) [not null]
+  description text
+  publication_year int [note: 'CHECK (publication_year > 0 AND publication_year <= EXTRACT(YEAR FROM CURRENT_DATE))']
+  publisher varchar(100)
+  cover_url varchar(255)
+  is_archived boolean [not null, default: false]
+  created_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at timestamptz
+
+  indexes {
+    title [type: gin, note: 'gin_trgm_ops']
+  }
+}
+
+Table catalogue.book_author {
+  book_isbn varchar(17) [not null, ref: > catalogue.book.isbn]
+  author_id bigint [not null, ref: > catalogue.author.id]
+
+  indexes {
+    (book_isbn, author_id) [pk]
+    author_id
+  }
+}
+
+Table catalogue.book_category {
+  book_isbn varchar(17) [not null, ref: ?> catalogue.book.isbn]
+  category_id bigint [not null, ref: > catalogue.category.id]
+
+  indexes {
+    (book_isbn, category_id) [pk]
+    category_id
+  }
+}
+
+// SCHEMA: lending
+
+Enum lending.item_status {
+  AVAILABLE
+  RESERVED
+  CHECKED_OUT
+  LOST
+  DAMAGED
+  ARCHIVED
+}
+
+Enum lending.reservation_status {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  FULFILLED
+}
+
+Enum lending.loan_status {
+  ACTIVE
+  OVERDUE
+  RETURNED
+  LOST
+}
+
+Table lending.item {
+  id uuid [pk, default: `gen_random_uuid()`]
+  isbn varchar(17) [not null]
+  barcode varchar(20) [not null, unique]
+  status lending.item_status [not null, default: 'AVAILABLE']
+  created_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at timestamptz
+
+  indexes {
+    isbn
+    status
+  }
+}
+
+Table lending.reservation {
+  id uuid [pk, default: `gen_random_uuid()`]
+  item_id uuid [not null, ref: ?> lending.item.id]
+  user_id uuid [not null]
+  status lending.reservation_status [not null, default: 'ACTIVE']
+  reserved_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  expires_at timestamptz [not null]
+  fulfilled_at timestamptz
+}
+
+Table lending.loan {
+  id uuid [pk, default: `gen_random_uuid()`]
+  item_id uuid [not null, ref: ?> lending.item.id]
+  borrower_id uuid [not null]
+  status lending.loan_status [not null, default: 'ACTIVE']
+  borrowed_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  due_at timestamptz [not null]
+  returned_at timestamptz
+
+  indexes {
+    borrower_id
+    status
+    due_at
+  }
+}
